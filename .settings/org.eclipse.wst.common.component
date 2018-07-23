@@ -2,6 +2,7 @@
     <wb-module deploy-name="dnyGenerate">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="context-root" value="dnyGenerate"/>
         <property name="java-output-path" value="/dnyGenerate/build/classes"/>
     </wb-module>

@@ -15,10 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import util.PropertiesReaderUtil;
-
 
 public class CreateBean {
 	private Connection connection = null;
@@ -110,7 +109,7 @@ public class CreateBean {
 
 	public List<ColumnData> getColumnDatas(String tableName) throws SQLException {
 		String SQLColumns = "select column_name ,data_type,column_comment,0,0,character_maximum_length,is_nullable nullable,COLUMN_KEY from information_schema.columns where table_name =  '"
-				+ tableName + "' "; // + "and table_schema =  '" + CodeResourceUtil.DATABASE_NAME +
+				+ tableName + "' "; // + "and table_schema = '" + CodeResourceUtil.DATABASE_NAME +
 									// "'";
 
 		Connection con = getConnection();
@@ -321,8 +320,8 @@ public class CreateBean {
 			sb.append("import ").append(importName[i]).append(";\r");
 		}
 		sb.append("\r");
-		sb.append("/**\r *  entity. @author wolf Date:"
-				+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\r */");
+		sb.append("/**\r *  entity. @author wolf Date:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())
+				+ "\r */");
 		sb.append("\r");
 		sb.append("\rpublic class ").append(className);
 		if (extendsClassName != null) {
@@ -351,8 +350,8 @@ public class CreateBean {
 		String[] split = tableName.split("_");
 		if (split.length > 1) {
 			StringBuffer sb = new StringBuffer();
-//			for (int i = 0; i < split.length; i++) { // TODO 为了去掉前面的数据库 前缀。
-			for (int i = 1; i < split.length; i++) { 
+			// for (int i = 0; i < split.length; i++) { // TODO 为了去掉前面的数据库 前缀。
+			for (int i = 1; i < split.length; i++) {
 				String tempTableName = split[i].substring(0, 1).toUpperCase()
 						+ split[i].substring(1, split[i].length());
 				sb.append(tempTableName);
